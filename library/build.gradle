@@ -16,7 +16,7 @@ ext {
     siteUrl = 'https://github.com/Harmanbeer007/PdfViewPager'
     gitUrl = 'https://github.com/Harmanbeer007/PdfViewPager.git'
 
-    libraryVersion = '1.1.2'
+    libraryVersion = '1.1.3'
 
     developerId = 'Harmanbeer007'
     developerName = 'Harmanbeer Singh'
