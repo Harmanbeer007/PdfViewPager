@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="es.voghdev.pdfviewpager"
+    package="com.harman.pdfviewpager"
     android:versionCode="1"
     android:versionName="1.0">
 
@@ -9,10 +9,10 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
-        android:name=".SampleApplication"
+        android:name="com.harman.pdfviewpager.SampleApplication"
         android:label="@string/app_name">
         <activity
-            android:name=".MainActivity"
+            android:name="com.harman.pdfviewpager.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/Base.Theme.AppCompat.Light.DarkActionBar">
             <intent-filter>
@@ -21,22 +21,22 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AssetOnXMLActivity"
+            android:name="com.harman.pdfviewpager.AssetOnXMLActivity"
             android:theme="@style/Base.Theme.AppCompat.Light.DarkActionBar" />
         <activity
-            android:name=".AssetOnSDActivity"
+            android:name="com.harman.pdfviewpager.AssetOnSDActivity"
             android:theme="@style/Base.Theme.AppCompat.Light.DarkActionBar" />
         <activity
-            android:name=".RemotePDFActivity"
+            android:name="com.harman.pdfviewpager.RemotePDFActivity"
             android:theme="@style/Base.Theme.AppCompat.Light.DarkActionBar" />
         <activity
-            android:name=".ZoomablePDFActivityPhotoView"
+            android:name="com.harman.pdfviewpager.ZoomablePDFActivityPhotoView"
             android:theme="@style/Base.Theme.AppCompat.Light.DarkActionBar" />
         <activity
-            android:name=".PDFWithScaleActivity"
+            android:name="com.harman.pdfviewpager.PDFWithScaleActivity"
             android:theme="@style/Base.Theme.AppCompat.Light.DarkActionBar" />
         <activity
-            android:name=".InvalidPdfActivity"
+            android:name="com.harman.pdfviewpager.InvalidPdfActivity"
             android:theme="@style/Base.Theme.AppCompat.Light.DarkActionBar" />
     </application>
 </manifest>
