@@ -17,7 +17,7 @@ Installation
 
 Add this line in your *app/build.gradle*
 
-   implementation 'com.github.Harmanbeer007:PdfViewPager:1.1.4'
+    implementation 'com.github.Harmanbeer007:PdfViewPager:1.1.4'
 
 If you want to use the old `android.support` instead of `androidx`, add this original source dependency
 
@@ -41,11 +41,15 @@ Use **PDFViewPager** class to load PDF files from assets or SD card
 
 2b.- Or directly, declare it on your XML layout
 
-    <es.voghdev.pdfviewpager.library.PDFViewPager
-        android:id="@+id/pdfViewPager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:assetFileName="sample.pdf"/>
+    <com.harman.pdfviewpager.library.PDFViewPager
+                android:id="@+id/pdfViewPager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/pageCount"
+                android:layout_below="@+id/toolBar"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                app:assetFileName="privacy_policy.pdf" />
 
 It will automatically have zooming and panning capability
 
