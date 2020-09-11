@@ -212,7 +212,7 @@ Developed By
 Modified By
 ------------
 
-* Harmanbeer Singh - [Harmanbeer007][9] 
+* Harmanbeer Singh - [Harmanbeer007][13] 
 
 
 <a href="http://twitter.com/voghDev">
@@ -281,3 +281,4 @@ And with your Android device connected
 [10]: http://www.mobiledevstories.com
 [11]: https://github.com/chrisbanes/PhotoView
 [12]: https://github.com/voghDev/HelloKotlin/blob/pdfviewpager/app/src/main/java/es/voghdev/hellokotlin/PdfViewPagerActivity.kt
+[13]: https://github.com/Harmanbeer007
