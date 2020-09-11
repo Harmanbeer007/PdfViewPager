@@ -70,14 +70,12 @@ public class RemotePDFViewPager extends ViewPager implements DownloadFile.Listen
 
     private void init(DownloadFile downloadFile, String pdfUrl) {
         setDownloader(downloadFile);
-        downloadFile.download(pdfUrl,
-                new File(context.getCacheDir(), FileUtil.extractFileNameFromURL(pdfUrl)).getAbsolutePath());
+        downloadFile.download(pdfUrl, new File(context.getCacheDir(), FileUtil.extractFileNameFromURL(pdfUrl)).getAbsolutePath());
     }
 
     private void init(DownloadFile downloadFile, String pdfUrl, String customFileName) {
         setDownloader(downloadFile);
-        downloadFile.download(pdfUrl,
-                new File(context.getCacheDir(), customFileName).getAbsolutePath());
+        downloadFile.download(pdfUrl, new File(context.getCacheDir(), customFileName).getAbsolutePath());
     }
 
     private void init(AttributeSet attrs) {

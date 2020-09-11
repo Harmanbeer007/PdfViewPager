@@ -22,6 +22,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.nio.file.Paths;
 
 public class FileUtil {
     public static boolean copyAsset(Context ctx, String assetName, String destinationPath) throws IOException {
@@ -42,6 +46,12 @@ public class FileUtil {
     }
 
     public static String extractFileNameFromURL(String url) {
-        return url.substring(url.lastIndexOf('/') + 1);
+        try {
+            String filePath = new URI(url).getPath();
+            return filePath.substring(filePath.lastIndexOf('/') + 1);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return url.substring(url.lastIndexOf('/') + 1);
+        }
     }
 }
