@@ -3,6 +3,7 @@
 [![Download](https://api.bintray.com/packages/voghdev/maven/pdfviewpager/images/download.svg) ](https://bintray.com/voghdev/maven/pdfviewpager/_latestVersion)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-PdfViewPager-green.svg?style=true)](https://android-arsenal.com/details/1/3155)
 [![Build Status](https://travis-ci.org/voghDev/PdfViewPager.svg?branch=master)](https://travis-ci.org/voghDev/PdfViewPager)
+[![](https://jitpack.io/v/Harmanbeer007/PdfViewPager.svg)](https://jitpack.io/#Harmanbeer007/PdfViewPager)
 
 Android widget to display PDF documents in your Activities or Fragments.
 
@@ -16,9 +17,9 @@ Installation
 
 Add this line in your *app/build.gradle*
 
-    implementation 'es.voghdev.pdfviewpager:library:1.1.2'
+   implementation 'com.github.Harmanbeer007:PdfViewPager:1.1.4'
 
-If you want to use the old `android.support` instead of `androidx`, add this dependency
+If you want to use the old `android.support` instead of `androidx`, add this original source dependency
 
     implementation 'es.voghdev.pdfviewpager:library:1.0.6'
 
@@ -98,7 +99,11 @@ Remote PDF's from a URL
     String url = "http://www.cals.uidaho.edu/edComm/curricula/CustRel_curriculum/content/sample.pdf";
     
     RemotePDFViewPager remotePDFViewPager =
-          new RemotePDFViewPager(context, url, this);
+          new RemotePDFViewPager(context, url, this);          
+          or
+    RemotePDFViewPager  remotePDFViewPager = 
+                new RemotePDFViewPager(context, url, this,CustomFileName(optional 4th param));
+
 
 4.- Configure the corresponding callbacks and they will be called on each situation.
 
@@ -138,6 +143,50 @@ As you might figure out, the library is fully usable in Kotlin programming langu
 
 Just import the library as a gradle dependency as you would do in Java.
 
+1.- Add `INTERNET`, `READ_EXTERNAL_STORAGE` and `WRITE_EXTERNAL_STORAGE` permissions on your AndroidManifest.xml
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+2.- Make your Activity or Fragment implement DownloadFile.Listener
+
+    class ActivityPdfViewer : AppCompatActivity(), DownloadFile.Listener, View.OnClickListener {
+
+
+3.- Create a **RemotePDFViewPager** object
+
+    String url = "http://www.cals.uidaho.edu/edComm/curricula/CustRel_curriculum/content/sample.pdf";
+    
+    RemotePDFViewPager  remotePDFViewPager = RemotePDFViewPager(this@ActivityPdfViewer, url, this);
+    or
+    RemotePDFViewPager  remotePDFViewPager = RemotePDFViewPager(this@ActivityPdfViewer, url, this,CustomFileName(optional 4th param));
+
+4.- Configure the corresponding callbacks and they will be called on each situation.
+
+    override fun onSuccess(url: String?, destinationPath: String?) {
+        adapter = PDFPagerAdapter(this, FileUtil.extractFileNameFromURL(url))
+        remotePDFViewPager?.adapter = adapter
+        setContentView(remotePDFViewPager)        
+    }
+    
+    override fun onFailure(e: Exception?) {
+        // This will be called if download fails
+    }
+    
+    override fun onProgressUpdate(progress: Int, total: Int) {
+        // You will get download progress here
+        // Always on UI Thread so feel free to update your views here
+    }
+
+5.- Don't forget to close adapter in *onDestroy* to release all resources
+
+    override fun onDestroy() {
+        super.onDestroy()
+        (remotePDFViewPager?.adapter as PDFPagerAdapter).close()
+    }
+
+
 TODOs
 -----
 
@@ -155,6 +204,12 @@ Developed By
 ------------
 
 * Olmo Gallegos Hernández - [voghDev][9] - [mobiledevstories.com][10]
+
+Modified By
+------------
+
+* Harmanbeer Singh - [Harmanbeer007][9] 
+
 
 <a href="http://twitter.com/voghDev">
   <img alt="Follow me on Twitter" src="https://image.freepik.com/iconos-gratis/twitter-logo_318-40209.jpg" height="60" width="60" />
